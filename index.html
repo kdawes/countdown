@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="css/flipclock.css">
+</head>
+<body>
+  <div id="container">
+    <div id="content">
+      <div id="clock"></div>
+    </div>
+  </div>
+  <!--
+  <script src="js/jquery/jquery.js"></script>
+  <script src="js/flipclock/flipclock.min.js"></script>
+  <script src="bower_components/momentjs/moment.js"></script>
+  -->
+  <script src="bundle.js"></script>
+  <script>
+  var clock;
+  $().ready(function(){
+    var targetDate = "2014-02-14";
+    var m = new moment(targetDate, "YYYY-MM-DD");
+    var now = new moment();
+    console.log("Seconds : m : " + m);
+    console.log("seconds now : " + now)
+
+    var deltaT = (m - now) / 1000;
+    console.log("deltaT   : " + deltaT);
+    clock = $('#clock').FlipClock(deltaT,  {
+      clockFace: 'DailyCounter',
+      countdown:true,
+      showSeconds:true
+    });
+  });
+  </script>
+</body>
+</html>
